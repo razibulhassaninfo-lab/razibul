@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MD. Razibul Hassan | AI Premium Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+:root{
+ --bg-dark:#0b0f1a;
+ --bg-light:#f5f7fb;
+ --card:#12182b;
+ --accent:#00e0ff;
+ --text-dark:#e6e6eb;
+ --text-light:#1a1a1a;
+ --gradient:linear-gradient(135deg,#00e0ff,#7b61ff);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:'Poppins',sans-serif;
+ background:var(--bg-dark);
+ color:var(--text-dark);
+ transition:.4s;
+}
+.light{
+ background:var(--bg-light);
+ color:var(--text-light);
+}
+
+nav{
+ position:fixed;top:0;width:100%;z-index:99;
+ padding:20px 60px;
+ display:flex;justify-content:space-between;align-items:center;
+ backdrop-filter:blur(12px);
+ background:rgba(0,0,0,.4);
+}
+nav h1{background:var(--gradient);-webkit-background-clip:text;color:transparent}
+nav ul{list-style:none;display:flex;gap:25px}
+nav a{color:#aaa;text-decoration:none}
+nav a:hover{color:var(--accent)}
+
+.hero{
+ min-height:100vh;display:grid;place-items:center;text-align:center;
+ padding-top:120px
+}
+.hero h2{font-size:3.2rem}
+.hero span{background:var(--gradient);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:700px;margin:20px auto;color:#aaa}
+
+.btn{
+ padding:14px 36px;border-radius:40px;
+ background:var(--gradient);border:none;font-weight:600;
+ cursor:pointer
+}
+
+section{padding:100px 80px}
+.title{font-size:2.2rem;margin-bottom:40px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.card{
+ background:var(--card);padding:30px;border-radius:20px;
+ transition:.4s
+}
+.card:hover{transform:translateY(-10px)}
+
+.gallery img{width:100%;border-radius:16px}
+
+.social a{
+ margin:0 10px;font-size:1.4rem;text-decoration:none;color:var(--accent)
+}
+
+form input,form textarea{
+ width:100%;padding:14px;margin-bottom:14px;border-radius:10px;border:none
+}
+
+footer{text-align:center;padding:40px;color:#888}
+
+.toggle{
+ position:fixed;right:20px;bottom:20px;padding:10px 16px;border-radius:30px;
+ background:var(--gradient);cursor:pointer;font-weight:600
+}
+</style>
+</head>
+<body>
+
+<nav>
+ <h1>RAZIBUL</h1>
+ <ul>
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#work">Work</a></li>
+  <li><a href="#travel">Travel</a></li>
+  <li><a href="#contact">Contact</a></li>
+ </ul>
+</nav>
+
+<section class="hero">
+ <div>
+  <h2>Hello, I'm <span>MD. Razibul Hassan</span></h2>
+  <p>Graphic Designer • Photographer • AI & Computer Vision Enthusiast • Entrepreneur</p>
+  <button class="btn">Explore Portfolio</button>
+ </div>
+</section>
+
+<section id="about">
+ <h3 class="title">About Me</h3>
+ <p>
+  I'm MD. Razibul Hassan, currently doing my own business. I work as a creative
+  graphic designer, photographer and AI computer vision enthusiast.
+ </p>
+</section>
+
+<section id="skills">
+ <h3 class="title">Skills & Software</h3>
+ <div class="grid">
+  <div class="card">🎨 Graphic Design</div>
+  <div class="card">📷 Photography</div>
+  <div class="card">🤖 Computer Vision & Deep Learning</div>
+  <div class="card">🧰 Canva, Affinity, Lightroom</div>
+  <div class="card">🎬 CapCut, gRMS</div>
+ </div>
+</section>
+
+<section id="work">
+ <h3 class="title">Design Projects</h3>
+ <div class="grid gallery">
+  <img src="BURGER.jpg" alt="Design Work">
+  <img src="NEW.jpg" alt="Design Work">
+ </div>
+</section>
+
+<section id="travel">
+ <h3 class="title">Travel Photography</h3>
+ <div class="grid gallery">
+  <img src="WhatsApp Image 2026-01-09 at 3.37.15 PM.jpeg" alt="Travel">
+ </div>
+</section>
+
+<section id="contact">
+ <h3 class="title">Contact Me</h3>
+ <form id="contactForm">
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Email" required>
+  <textarea placeholder="Message"></textarea>
+  <button class="btn">Send</button>
+ </form>
+
+ <div class="social">
+  <a href="https://www.facebook.com/razibulhassanraju">Facebook</a>
+  <a href="https://www.youtube.com/@withrhraju">YouTube</a>
+  <a href="https://www.instagram.com/razibulhassan">Instagram</a>
+  <a href="https://www.tiktok.com/@withrhraju">TikTok</a>
+ </div>
+</section>
+
+<footer>
+ © 2026 MD. Razibul Hassan • AI Premium Portfolio
+</footer>
+
+<div class="toggle" onclick="document.body.classList.toggle('light')">🌗 Theme</div>
+
+<script>
+ gsap.from('.hero h2',{y:60,opacity:0,duration:1});
+ gsap.from('.card',{opacity:0,y:40,stagger:.2,scrollTrigger:{trigger:'.card'}});
+
+ (function(){emailjs.init('YOUR_PUBLIC_KEY')})();
+</script>
+
+</body>
+</html>
